@@ -1,15 +1,17 @@
-# Building a SOC + Honeynet in Azure (Live Traffic)
-![Cloud Honeynet / SOC](https://i.imgur.com/ZWxe03e.jpg)
+# Honeynet In Azure 
+![Cloud Honeynet / SOC])
+
+![Simple Digital Marketing Website](https://github.com/djohnson90017/Azure-Soc/assets/149316775/5d69c579-6b7f-4144-9d92-7b6d445d7288)
 
 ## Introduction
 
-In this project, I build a mini honeynet in Azure and ingest log sources from various resources into a Log Analytics workspace, which is then used by Microsoft Sentinel to build attack maps, trigger alerts, and create incidents. I measured some security metrics in the insecure environment for 24 hours, apply some security controls to harden the environment, measure metrics for another 24 hours, then show the results below. The metrics we will show are:
+In this project, I embarked on the endeavor of constructing a mini honeynet within the confines of the Azure cloud environment. Subsequently, I meticulously gathered log data from a diverse range of sources and meticulously channeled it into a Log Analytics workspace. This centralized repository served as the cornerstone for Microsoft Sentinel, empowering it to meticulously construct attack maps, proactively trigger alerts, and effectively generate incidents. With meticulous precision, I delved into the heart of the insecure environment, meticulously measuring security metrics over a 24-hour period. Following this, I diligently implemented a series of stringent security controls to fortify the environment, subjecting it to another 24-hour metrics measurement cycle. The results of this rigorous testing are presented below, encompassing the following security metrics:
 
-- SecurityEvent (Windows Event Logs)
-- Syslog (Linux Event Logs)
-- SecurityAlert (Log Analytics Alerts Triggered)
-- SecurityIncident (Incidents created by Sentinel)
-- AzureNetworkAnalytics_CL (Malicious Flows allowed into our honeynet)
+SecurityEvent: Windows Event Logs
+Syslog: Linux Event Logs
+SecurityAlert: Log Analytics Alerts Triggered
+SecurityIncident: Incidents created by Sentinel
+AzureNetworkAnalytics_CL: Malicious Flows allowed into our honeynet
 
 ## Architecture Before Hardening / Security Controls
 ![Architecture Diagram](https://i.imgur.com/aBDwnKb.jpg)
@@ -17,19 +19,31 @@ In this project, I build a mini honeynet in Azure and ingest log sources from va
 ## Architecture After Hardening / Security Controls
 ![Architecture Diagram](https://i.imgur.com/YQNa9Pp.jpg)
 
-The architecture of the mini honeynet in Azure consists of the following components:
+Mini Honeynet Architecture in Azure
 
-- Virtual Network (VNet)
-- Network Security Group (NSG)
-- Virtual Machines (2 windows, 1 linux)
-- Log Analytics Workspace
-- Azure Key Vault
-- Azure Storage Account
-- Microsoft Sentinel
+The mini honeynet in Azure comprises the following components:
 
-For the "BEFORE" metrics, all resources were originally deployed, exposed to the internet. The Virtual Machines had both their Network Security Groups and built-in firewalls wide open, and all other resources are deployed with public endpoints visible to the Internet; aka, no use for Private Endpoints.
+Virtual Network (VNet): Provides a secure isolation layer for the honeynet environment.
 
-For the "AFTER" metrics, Network Security Groups were hardened by blocking ALL traffic with the exception of my admin workstation, and all other resources were protected by their built-in firewalls as well as Private Endpoint
+Network Security Group (NSG): Enforces granular traffic control rules to restrict unauthorized access to the honeynet.
+
+Virtual Machines (VMs): Serve as honeypot systems that mimic vulnerable targets to attract and deceive attackers.
+
+Log Analytics Workspace: Collects and centralizes logs from honeynet components for comprehensive monitoring and analysis.
+
+Azure Key Vault: Safeguards sensitive credentials and secrets used by the honeynet infrastructure.
+
+Azure Storage Account: Stores log data and other honeynet artifacts for future reference and investigation.
+
+Microsoft Sentinel: Provides security intelligence and threat detection capabilities to identify and respond to potential threats.
+
+BEFORE Metrics
+
+Initially, all resources were exposed to the internet, allowing unrestricted access from malicious actors. The Virtual Machines had both their Network Security Groups and built-in firewalls disabled, and all other resources lacked private endpoints, making them vulnerable to public attacks.
+
+AFTER Metrics
+
+To enhance security, Network Security Groups were hardened by blocking all incoming traffic except for authorized connections from the administrator's workstation. Additionally, all resources were protected by their built-in firewalls and private endpoints, effectively shielding them from unauthorized access.
 
 ## Attack Maps Before Hardening / Security Controls
 ![NSG Allowed Inbound Malicious Flows](https://i.imgur.com/1qvswSX.png)<br>
