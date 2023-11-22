@@ -1,7 +1,8 @@
 # Honeynet In Azure 
 ![Cloud Honeynet / SOC])
 
-![Simple Digital Marketing Website](https://github.com/djohnson90017/Azure-Soc/assets/149316775/5d69c579-6b7f-4144-9d92-7b6d445d7288)
+
+![Honeypot  (1)](https://github.com/djohnson90017/Azure-Soc/assets/149316775/b74c5083-9ef3-43af-9c7b-c10d2836f8f7)
 
 ## Introduction
 
