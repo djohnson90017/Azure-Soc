@@ -1,8 +1,7 @@
 # Honeynet In Azure 
 ![Cloud Honeynet / SOC])
 
-
-![Honeypot  (1)](https://github.com/djohnson90017/Azure-Soc/assets/149316775/b74c5083-9ef3-43af-9c7b-c10d2836f8f7)
+![Honeypot  (1)](https://github.com/djohnson90017/Azure-Soc/assets/149316775/1f746b3e-a07d-4f39-a963-97540a19405f)
 
 ## Introduction
 
